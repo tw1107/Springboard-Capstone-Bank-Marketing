@@ -5,6 +5,9 @@ Marketing campaigns are characterized by focusing on the customer needs and thei
 Nevertheless, there are different variables that determine whether a marketing campaign will be successful or not. 
 There are certain variables that we need to take into consideration when making a marketing campaign.
 
+What is a Term Deposit?
+A Term deposit is a deposit that a bank or a financial institurion offers with a fixed rate (often better than just opening deposit account) in which your money will be returned back at a specific maturity time. For more information with regards to Term Deposits please click on this link from Investopedia:
+
 ## 1. Problem Statement
 How can the financial institution have a greater effectiveness for future marketing campaigns?
 
