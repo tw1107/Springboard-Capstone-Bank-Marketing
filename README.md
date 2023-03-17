@@ -1,3 +1,5 @@
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/dataset-cover.jpg)
+
 # Bank Marketing Campaign: Predicting Term Deposit Subscriptions
 Marketing campaigns are characterized by focusing on the customer needs and their overall satisfaction. 
 Nevertheless, there are different variables that determine whether a marketing campaign will be successful or not. 
