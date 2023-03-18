@@ -53,14 +53,14 @@ contacted)
 17. y - has the client subscribed a term deposit? (binary: 'yes','no')
 
 
-## 4. Data Cleaning
-[Data Cleaning Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/01_data_wrangling.ipynb)
+## 4. Data Wrangling
+[Data Wrangling Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/01_data_wrangling.ipynb)
 
 Major steps:
-1. Check for duplicates:  There are 0 duplicates for this dataset
-2. Impute missing values
-3. Transform numerical features to categorical when they are true catrgorical
-4. Encode some categorical features as ordered numbers when there is information in the order
+1. The dataset has a shape of (11162, 17)
+2. Check for duplicates:  There are 0 duplicates for this dataset
+3. Check for missing values: There are 0 missing values
+4. Will perform EDA and see if we need to drop any fields for pre processing
 
 ## 5. EDA
 [EDA Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/02_EDA.ipynb)
