@@ -12,8 +12,9 @@ A Term deposit is a deposit that a bank or a financial institurion offers with a
 How can the financial institution have a greater effectiveness for future marketing campaigns?
 
 ## 2. Goal
-The goal of this project is to analyze the bank's most recent marketing campaign and identify patterns that will help the financial institution improve for future campaigns. 
-This analysis will enable the bank to have greater effectiveness in future marketing campaigns.
+The goal of this project are:
+1. Prediction of the results of the marketing campaign for each customer and clarification of factors which affect the campaign results. This helps to find out the ways how to make marketing campaigns more efficient.
+2. Finding out customer segments, using data for customers, who subscribed to term deposit. This helps to identify the profile of a customer, who is more likely to acquire the product and develop more targeted marketing campaigns.
 
 ## 3. Data
 Marketing bank dataset uploaded originally in the UCI Machine Learning Repository. 
@@ -37,13 +38,13 @@ The dataset gives information about a marketing campaign of a financial institut
 
 9. contact: contact communication type (categorical: 'cellular','telephone')
 10. month: last contact month of year (categorical: 'jan', 'feb', 'mar', ..., 'nov', 'dec')
-11. day: last contact day of the week (categorical: 'mon','tue','wed','thu','fri')
+11. day: last contact day of the month (numeric: 1-31)
 12. duration: last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.
 
 *Other attributes:*
 
 13. campaign: number of contacts performed during this campaign and for this client (numeric, includes last contact)
-14. pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously
+14. pdays: number of days that passed by after the client was last contacted from a previous campaign (numeric; -1 means client was not previously
 contacted)
 15. previous: number of contacts performed before this campaign and for this client (numeric)
 16. poutcome: outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success')
@@ -52,9 +53,8 @@ contacted)
 
 17. y - has the client subscribed a term deposit? (binary: 'yes','no')
 
-
 ## 4. Data Wrangling
-[Data Wrangling Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/01_data_wrangling.ipynb)
+[Data Wrangling Notebook](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/notebook/01_Data_Wrangling.ipynb)
 
 Major steps:
 1. The dataset has a shape of (11162, 17)
@@ -63,25 +63,32 @@ Major steps:
 4. Will perform EDA and see if we need to drop any fields for pre processing
 
 ## 5. EDA
-[EDA Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/02_EDA.ipynb)
+[EDA Notebook](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/notebook/02_EDA.ipynb)
 
-**Sale Price** is what we are predicting, EDA is all related to SalePrice (our target feature). Below are some take away:
+**Term Deposit** is what we are predicting, EDA is all related to deposit (our target feature). Summary: 
 
-**Price of properties in Ames, Iowa** 
-![alt text](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/images/Screenshot%202023-02-26%20at%201.53.12%20PM.png)
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.43.19%20PM.png)
+- Target variable 'deposit' is balanced, we can use accuracy as a metric for a model, which predicts the campaign outcome.
 
-1. Average house sale price is around $180,000 in Ames.
-2. There are a few properties over $500,000, but majority of houses are priced under $214,000.
-3. The target variable is right skewed (positive skewness) and shows peakedness. As (linear) models fits better on normally distributed data, we require proper transformation. 
+**Cliet Demographic Analysis** 
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.02%20PM.png)
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.08%20PM.png)
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.14%20PM.png)
 
-**The most important numeric predictors** 
-![alt text](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/images/top10.png)
+1. 36% of clients are in the age 30's-40's
+2. Top 3 job: 20% of clients work in mamangement, followed by 16% in blue-collar, and 15% technician.
+3. More than half with 52% are married
+4. 45% have a secondary education
+5. Mostly have no loan and no default credit card.
+6. It's 50-50 in terms of having housing
+7. 90% of clients have balance below $20,000
 
-**Attributes most correlated with sale price** 
-![alt text](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/images/Screenshot%202023-02-26%20at%202.12.07%20PM.png)
-
-**Time vs Sale price** 
-![alt text](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/images/year.png)
+**Campaign Analysis** 
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.20%20PM.png)
+1. Some numerical features have outliers (especially 'pdays', 'campaign' and 'previous' columns), will imput the ourlers by mean for pre-processing.
+2. Conctact by celler have 39% deposit rate
+3. May & August have higher deposit rate
+4. Unknown outcome of the previous marketing campaign has higher depost rate
 
 ## 6. Feature Engineer & Modeling
 [Feature engineering & ML Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/04_Modeling.ipynb)
@@ -96,13 +103,14 @@ Major steps:
 
 **Modeling Major Steps:** 
 Created below models with RandomizedSearchCV hyperparameter tuning for model optimization
-1. Ridge 
-2. Lasso 
-3. ElasticNet
-4. XGBoost
-5. Gradient Boosting Regression
-6. Light GBM
-7. Stacking Model with ElasticNet as the meta_mode
+1. Customer Segmentation Clustering
+2. Ridge 
+3. Lasso 
+4. ElasticNet
+5. XGBoost
+6. Gradient Boosting Regression
+7. Light GBM
+8. Stacking Model with ElasticNet as the meta_mode
 
 Model Validation Metric:
 1. RMSE
