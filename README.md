@@ -94,22 +94,15 @@ Major steps:
 
 **Feature Engineering Major Steps:**
 1. Encode some categorical features as ordered numbers when there is information in the order
-2. Create new features
-3. Log transform of the skewed numerical features to lessen impact of outliers
-4. Transformation of categorical features vis one-hot encoding
-5. Split into testing and training datasets
-6. Standardize the magnitude of numeric features using a scaler
+2. Log transform of the skewed numerical features to lessen impact of outliers
+3. Transformation of categorical features vis one-hot encoding
+4. Split into testing and training datasets
+5. Standardize the magnitude of numeric features using a scaler
 
 **Modeling Major Steps:** 
 Created below models with RandomizedSearchCV hyperparameter tuning for model optimization
 1. Customer Segmentation Clustering
-2. Ridge 
-3. Lasso 
-4. ElasticNet
-5. XGBoost
-6. Gradient Boosting Regression
-7. Light GBM
-8. Stacking Model with ElasticNet as the meta_mode
+2. 
 
 Model Validation Metric:
 1. RMSE
