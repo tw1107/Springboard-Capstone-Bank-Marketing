@@ -71,10 +71,8 @@ Major steps:
 - Target variable 'deposit' is balanced, we can use accuracy as a metric for a model, which predicts the campaign outcome.
 
 **Cliet Demographic Analysis** 
-![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.02%20PM.png)
-![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.08%20PM.png)
-![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.14%20PM.png)
 
+![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Demographic.png)
 1. 36% of clients are in the age 30's-40's
 2. Top 3 job: 20% of clients work in mamangement, followed by 16% in blue-collar, and 15% technician.
 3. More than half with 52% are married
@@ -84,6 +82,7 @@ Major steps:
 7. 90% of clients have balance below $20,000
 
 **Campaign Analysis** 
+
 ![alt text](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/Screenshot%202023-03-19%20at%205.46.20%20PM.png)
 1. Some numerical features have outliers (especially 'pdays', 'campaign' and 'previous' columns), will imput the ourlers by mean for pre-processing.
 2. Conctact by celler have 39% deposit rate
