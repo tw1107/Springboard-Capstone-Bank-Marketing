@@ -90,24 +90,44 @@ Major steps:
 4. Unknown outcome of the previous marketing campaign has higher depost rate
 
 ## 6. Feature Engineer & Modeling
-[Feature engineering & ML Notebook](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/notebook/04_Modeling.ipynb)
+[Feature engineering & ML Notebook](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/notebook/03_Pre_Processing_Modeling.ipynb)
 
 **Feature Engineering Major Steps:**
 1. Encode some categorical features as ordered numbers when there is information in the order
 2. Log transform of the skewed numerical features to lessen impact of outliers
 3. Transformation of categorical features vis one-hot encoding
-4. Split into testing and training datasets
-5. Standardize the magnitude of numeric features using a scaler
+4. Convert target variable to boolean
+5. Split into testing and training datasets
+6. Standardize the magnitude of numeric features using a scaler
 
 **Modeling Major Steps:** 
-Created below models with RandomizedSearchCV hyperparameter tuning for model optimization
-1. Customer Segmentation Clustering
-2. 
+Created below models:
+1. Logistic Regression
+2. Decision Tree
+3. Random Forest
+4. K-Nearest Neighbors
+5. Support Vector Machine
+6. Gradient Boosting
 
 Model Validation Metric:
-1. RMSE
-2. R Squared
+1. Accuracy
+2. Precision
+3. Recall
+4. F1-score
+5. AUC-ROC
 
-![Model Performance Score](https://github.com/tw1107/Springboard-Capston-House-Price/blob/main/images/Screenshot%202023-02-26%20at%202.35.43%20PM.png)
+![Model Performance Score](https://github.com/tw1107/Springboard-Capstone-Bank-Marketing/blob/main/images/model_performance.png)
 
-## 7. Future improvements
+Note: Model Tuning on random forest using both GridSerchCV and RandomanizedCV did not improve performance, so will use RandomForestClassifier without tuning. 
+
+
+## 7. Recommendations
+**What Actions should the Bank Consider? Solutions for the Next Marketing Campaign (Conclusion):**
+
+**1) Age Category:** The next marketing campaign of the bank should target potential clients from age categories below 30 years old and above 50 years old.
+
+**2) Occupation:** Not surprisingly, potential clients that were students or retired were the most likely to suscribe to a term deposit. Retired individuals, tend to have more term deposits in order to gain some cash through interest payments. Remember, term deposits are short-term loans in which the individual (in this case the retired person) agrees not to withdraw the cash from the bank until a certain date agreed between the individual and the financial institution. After that time the individual gets its capital back and its interest made on the loan. Retired individuals tend to not spend bigly its cash so they are morelikely to put their cash to work by lending it to the financial institution. Students were the other group that used to suscribe term deposits.
+
+**3) Balance:** The customer's account balance has a huge influence on the campaign's outcome. People with account balance above 1490$ are more likely to subscribe for term deposit, so future address those customers.
+
+**4) Seasonality:** Potential clients opted to suscribe term deposits during the seasons of fall and winter. The next marketing campaign should focus its activity throghout these seasons.
